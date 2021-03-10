@@ -14,10 +14,6 @@ client_scripts {
     'config.lua'
 }
 
-server_scripts {
-    'server/server.lua'
-}
-
 ui_page 'ui/index.html'
 
 files {
