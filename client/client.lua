@@ -1,3 +1,5 @@
+-- Guille_Hud3 Optimized by VisiBait -> https://github.com/visibait. Original author: guillerp8 -> https://github.com/guillerp8
+
 ESX = nil 
 
 Citizen.CreateThread(function() 
@@ -7,13 +9,10 @@ Citizen.CreateThread(function()
     end 
 end)
 
-
-
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(900)
-        local player = GetPlayerPed(-1)
-        local ped = PlayerPedId(-1)
+        local ped = PlayerPedId()
         local o2
         
         TriggerEvent('esx_status:getStatus', 'hunger', function(status) comida = status.val / 10000 end)
@@ -26,8 +25,8 @@ Citizen.CreateThread(function()
         o2 = GetPlayerUnderwaterTimeRemaining(PlayerId()) * 10
         SendNUIMessage({
             
-            vida = GetEntityHealth(PlayerPedId())-100;
-            escudito = GetPedArmour(PlayerPedId());
+            vida = GetEntityHealth(ped)-100;
+            escudito = GetPedArmour(ped);
             bebida = bebida;
             comida = comida;
             o2 = o2;
